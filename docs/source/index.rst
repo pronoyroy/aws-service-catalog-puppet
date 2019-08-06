@@ -5,7 +5,7 @@ Welcome to aws-service-catalog-puppets's documentation!
    :maxdepth: 2
    :glob:
 
-   puppet/what_is_this
+   puppet/what_is_puppet
    puppet/getting_up_and_running
    puppet/designing_your_manifest
    puppet/sharing_a_portfolio

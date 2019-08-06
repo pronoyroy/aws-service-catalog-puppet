@@ -1,0 +1,34 @@
+What is Service Catalog Puppet?
+===============================
+
+AWS Service Catalog Puppet is an Open Source framework which allows you to provision AWS Service
+Catalog Products into multiple Accounts and Regions across your AWS Estate.
+
+The Tool builds upon the features provided by the native AWS Service Catalog Service including:
+
+- Adding Multi Region Portfolio sharing
+- Adding a Multi Account Hub and Spoke sharing model for Portfolios
+- Adding a Multi Account Hub and Spoke provisioning model for Products
+
+The Tool reduces the Operational burden of engineering a solution to support Product Provisioning 
+across a large Enterprise and allows you to focus on writing the Products you require to support 
+your Organizations needs.
+
+How does Service Catalog Puppet Work?
+-------------------------------------
+The Framework allows you to define rules to describe your AWS Accounts using AccountIds or as a set under a given AWS Organizational OU path. 
+Those descriptions can be tagged and then used to 'Share' Portfolios and 'Launch' Products into them. 
+
+Interaction with the framework is via a YAML file. Example are provided throughout the documentation.
+
+Under the covers, Service Catalog Puppet is converting requests into a workflow which is executed in your AWS Account using AWS CodePipeline, AWS CodeBuild and AWS CloudFormation.
+
+High level architecture diagram
+-------------------------------
+
+.. image:: ./diagrams/whatisthis.png
+
+You use an AWS CodeBuild project in a central _hub_ account that provisions AWS
+Service Catalog Products into _spoke_ accounts on your behalf.  The framework
+takes care of cross account sharing and cross region product replication for
+you.
