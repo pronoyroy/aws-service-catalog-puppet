@@ -22,7 +22,11 @@ User interaction with the Framework is via a YAML file with examples being provi
 - A List of AWS Account IDs
 - A set of AWS Accounts under a given AWS Organizational OU path
 
-The Descriptions of those Accounts can then be tagged and used to 'Share' Portfolios and 'Launch' Products into them.
+The Descriptions of those Accounts can then be tagged and used to 'Share' Portfolios and 'Launch' Products into them. The initial creation of the Portfolios and products can either be done manually or using the `Service Catalog Factory Toolset`__
+
+.. _SC-F: https://aws-service-catalog-factory.readthedocs.io/en/latest/index.html
+
+__ SC-F_
 
 Under the covers, Service Catalog Puppet is converting requests into a workflow which is executed in your AWS Account using AWS CodePipeline, AWS CodeBuild and AWS CloudFormation.
 
