@@ -24,10 +24,6 @@ User interaction with the Framework is via a YAML file with examples being provi
 
 The Descriptions of those Accounts can then be tagged and used to 'Share' Portfolios and 'Launch' Products into them. The initial creation of the Portfolios and products can either be done manually or using the `Service Catalog Factory Toolset`__
 
-.. _SC-F: https://aws-service-catalog-factory.readthedocs.io/en/latest/index.html
-
-__ SC-F_
-
 Under the covers, Service Catalog Puppet is converting requests into a workflow which is executed in your AWS Account using AWS CodePipeline, AWS CodeBuild and AWS CloudFormation.
 
 High-Level Architecture Diagram
@@ -38,3 +34,9 @@ You use an AWS CodeBuild project in a central _hub_ account that provisions AWS
 Service Catalog Products into _spoke_ accounts on your behalf.  The framework
 takes care of cross account sharing and cross region product replication for
 you.
+
+.. Add Links below. They are in the order in which they are used.
+
+.. _SC-F: https://aws-service-catalog-factory.readthedocs.io/en/latest/index.html
+
+__ SC-F_
