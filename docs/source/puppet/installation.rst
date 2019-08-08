@@ -51,6 +51,7 @@ Install Service Catalog Puppet
 Once you have successfully created and activated your environment, you are ready to install the Puppet Package locally to your Machine.
 
 .. code-block:: bash
+
     pip install aws-service-catalog-puppet
 
 Uploading Configuration File
