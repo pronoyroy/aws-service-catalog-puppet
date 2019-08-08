@@ -2,7 +2,7 @@ Installing Service Catalog Puppet
 =================================
 
 .. contents:: Table of Contents
-   :depth: 2
+   :depth: 1
    :local:
 
 Which Account Should I use for Puppet?
@@ -76,6 +76,37 @@ Configuration File Example:
       'eu-west-3',
     ]
 
+Setting your AWS Credentials
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To interact with your Puppet Account, you need to set your `AWS Credentials`__.  Initial configuration of your AWS requires an IAM User (or Assumable Role) to be setup in the Puppet Account. 
+
+.. note:: The Profile Name should be the same name used to configure aws cli for the Puppet Account and Region should be the AWS Region used to bootstrap the Factory.
+
+You can then Configure aws cli using:
+
+.. code-block:: bash
+
+    aws configure –profile profilename command.
+
+Once the profile is setup you must export the Variables into your environment:
+
+For linux:
+
+.. code-block:: bash
+
+    export AWS_PROFILE = profilename
+    export AWS_DEFAULT_REGION = region
+
+For Windows:
+
+.. code-block:: bash
+
+    set AWS_PROFILE = profilename
+    set AWS_DEFAULT_REGION = region
+
+
+
 Uploading the Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Once the file has been created, we can now upload it:
@@ -86,15 +117,72 @@ Once the file has been created, we can now upload it:
 
 Bootstrapping Puppet Account
 ----------------------------
-Bootstrapping the Environment will setup your Puppet Account with all of the requisite AWS Services such as CodeBuild jobs and CodePipeline to enable Puppet to function
+Bootstrapping the Environment will setup your Puppet Account with all of the requisite AWS Services such as CodeBuild jobs and CodePipeline to enable Puppet to function.
 
 Some Considerations:
 
 - If you make changes to your config you will need to run upload-config and bootstrap commands again for the changes to occur.
-- Prior to bootstrapping, you must make sure you have setup your `AWS Credentials`__ for the Puppet Account
+- Prior to bootstrapping, you must make sure you have setup your AWS Credentials (See: `Setting your AWS Credentials`_ for the Puppet Account.
 
-Once that has completed you are ready to bring up the rest of the puppet.
+There are 2 options for bootstrapping, the first creates the Puppet CodePipeline as standard but does not add an Approval Stage. This means everytime you make a commit to the Puppet Repo, the Pipeline will run through to completion, Sharing Portfolios and Launching Products as defined in the Manifest.
 
+Option 1:
+
+.. code-block:: bash
+
+    servicecatalog-puppet --info bootstrap
+
+The second adds an additional Approval Stage to the Puppet pipeline so when there is a new Commit an Approval is required prior to Puppet applying the Puppet Definition.
+
+Option 2:
+
+.. code-block:: bash
+
+    servicecatalog-puppet --info bootstrap --with-manual-approvals
+
+.. note::
+
+    Running the command with an optional '--info' flag will write the progress of the boostrap command to screen.
+
+Setup your Puppet
+~~~~~~~~~~~~~~~~~
+
+Once Puppet Account has been bootstrapped, you will not within the Account that there is now a Puppet CodePipeline. This has a Source of the Puppet CodeCommit Repository. You are now ready to work with Puppet :)
+
+You will n
+
+The first step is to Clone the newly created CodeCommit repository.
+
+Clone the configuration repo into a folder of your choice:
+
+.. code-block:: bash
+
+    git clone --config 'credential.helper=!aws codecommit credential-helper $@' --config 'credential.UseHttpPath=true' https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/ServiceCatalogPuppet
+    servicecatalog-puppet seed simple ServiceCatalogPuppet
+
+You now have the base template of Puppet and can interact with the YAML file locally on your Machine. In the next few sections of this documentation we discuss how to design your Manifest but at a very high level you'll need a code editor and some understanding of how to use `Git`__
+
+Navigate to the Manifest File in your Repo
+
+.. code-block:: bash
+
+    cd ServiceCatalogPuppet
+
+Open it in the editor of your choice
+    
+.. code-block:: bash
+
+    vim manifest.yaml
+
+Save the file, stage the commit, apply the commit and push it back up to the Puppet Code Commit Repo
+
+.. code-block:: bash
+
+    git add .
+    git commit -m "initial add"
+    git push
+
+If you look in the Puppet Account you will see the Puppet CodePipeline running. Wait for it to complete and you have a working Puppet.
 
 .. Add Links below. They are in the order in which they are used.
 
@@ -112,6 +200,9 @@ __ Region_
 
 .. _Creds: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 __ Creds_
+
+.. _Git: https://git-scm.com
+__ Git_
 
 
 

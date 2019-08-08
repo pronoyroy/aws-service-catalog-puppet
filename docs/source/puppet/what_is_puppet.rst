@@ -1,5 +1,8 @@
 What is Service Catalog Puppet?
 ===============================
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 **Service Catalog Puppet** is an Open Source framework which allows you to provision AWS Service
 Catalog Products into multiple Accounts and Regions across your AWS Estate.
