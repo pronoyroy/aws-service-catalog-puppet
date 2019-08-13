@@ -169,7 +169,7 @@ Navigate to the Manifest File in your Repo
     cd ServiceCatalogPuppet
 
 Open it in the editor of your choice
-    
+
 .. code-block:: bash
 
     vim manifest.yaml
