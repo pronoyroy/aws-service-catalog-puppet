@@ -1,10 +1,14 @@
 Designing your manifest
 =======================
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 Purpose of the manifest file
 ----------------------------
-The manifest file is there to describe what you want to provision and into which accounts you want to provision products
-into.  It is possible to use AWS Organizations to make your manifest file more concise and easier to work with but the
+
+The manifest file is there to describe your Accounts and define which ones you want to share portfolios and launch products into. It is possible to use AWS Organizations to make your manifest file more concise and easier to work with but the
 premise is the same - it is just a list of accounts and AWS Service Catalog products.
 
 

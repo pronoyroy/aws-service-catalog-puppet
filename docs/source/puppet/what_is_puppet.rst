@@ -22,8 +22,7 @@ How does Service Catalog Puppet Work?
 User interaction with the Framework is via a YAML file with examples being provided throughout the proceeding documentation. The YAML file is used to describe your AWS Accounts as:
 
 - Individual AWS Account Ids
-- A List of AWS Account IDs
-- A set of AWS Accounts under a given AWS Organizational OU path
+- A set of AWS Accounts under a given AWS Organizational OU Path (Requires AWS organizations)
 
 The Descriptions of those Accounts can then be tagged and used to 'Share' Portfolios and 'Launch' Products into them. The initial creation of the Portfolios and products can either be done manually or using the `Service Catalog Factory Toolset`__
 
