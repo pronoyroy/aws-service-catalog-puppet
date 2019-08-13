@@ -1,4 +1,4 @@
-Designing your manifest
+Writing your manifest
 =======================
 
 .. contents:: Table of Contents
