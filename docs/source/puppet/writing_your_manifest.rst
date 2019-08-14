@@ -19,7 +19,7 @@ There are 2 ways to describe your Accounts in the Manifest:
 - A set of AWS Accounts under a given AWS Organizational OU Path
 
 Using Individual AWS Account Ids
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -29,8 +29,8 @@ Using Individual AWS Account Ids
       name: '<MY_FIRST_ACCOUNT>'
       default_region: eu-west-1
       regions_enabled:
-        - eu-west-1
-        - eu-west-1
+        - eu-west-2
+        - us-east-1
       tags:
         - type:prod
         - partition:eu
@@ -39,8 +39,8 @@ Using Individual AWS Account Ids
       name: '<MY_SECOND_ACCOUNT>'
       default_region: eu-west-1
       regions_enabled:
-        - eu-west-1
-        - eu-west-1
+        - eu-west-2
+        - us-east-1
       tags:
         - type:prod
         - partition:eu
@@ -66,3 +66,7 @@ Using OU Path
       tags:
         - type:dept01-all
         - patchwindow:evenings
+
+.. Note:: 
+
+  OU Paths are Case Sensitive and therefore must match exactly as written in AWS Organizations
