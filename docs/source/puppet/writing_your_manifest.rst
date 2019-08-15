@@ -49,6 +49,8 @@ Using Individual AWS Account Ids
 Using OU Path
 ^^^^^^^^^^^^^
 
+To use OU Path, you must bootstrap your AWS Org Master and Puppet Accounts first. See :ref:`Bootstrapping for AWS Organization Support`
+
 .. code-block:: yaml
 
   schema: puppet-2019-04-01

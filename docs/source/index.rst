@@ -8,6 +8,7 @@ Welcome to aws-service-catalog-puppets's documentation!
    puppet/what_is_puppet
    puppet/installation
    puppet/bootstrapping_spokes
+   puppet/bootstrapping_org
    puppet/writing_your_manifest
    puppet/sharing_a_portfolio
    puppet/notifications
