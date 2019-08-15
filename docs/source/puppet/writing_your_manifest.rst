@@ -1,11 +1,11 @@
-Writing your manifest
+Writing Your Manifest
 =======================
 
 .. contents:: Table of Contents
    :depth: 1
    :local:
 
-Purpose of the manifest file
+Purpose of the Manifest File
 ----------------------------
 
 The Manifest file is used to describe your AWS Accounts and define which ones you want to share portfolios and launch products into. It is possible to use AWS Organizations to make your manifest file more concise and easier to work with but the premise is the same - it is just a list of accounts and AWS Service Catalog products.
@@ -122,4 +122,4 @@ The below code block provides an example of describing the same launch as above 
           regions: defualt_region
 .. note::
 
-  Note that the Tag matches one from our Account List Description earlier in this section
+  The Tag matches one from our Account List Description earlier in this section
